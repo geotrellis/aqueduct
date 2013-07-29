@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Aqueduct - Fun Things with GeoTrellis</title>
+
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />	
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />	
+
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/app.css" rel="stylesheet">
+    </head>
+    <body>
+		
+		<header>
+			<div class="navbar">
+				<div class="navbar-inner">
+					<a class="brand" href="#">Aqueduct</a>
+				</div>
+			</div>
+		</header>
+        
+        <div id="content">
+	        <div class="workspace">
+	        	<div class="workspace-container">
+					<div id="render"></div>	
+		            <div class="node singleSocket data" id="data_01">Data 1 <div class="node-tools"><div class="node-tool-options"><i class="icon-cog"></i></div><div class="node-tool-delete"><i class="icon-trash"></i></div></div></div>
+		            <div class="node singleSocket data" id="data_02">Data 2 <div class="node-tools"><div class="node-tool-options"><i class="icon-cog"></i></div><div class="node-tool-delete"><i class="icon-trash"></i></div></div></div>
+					<div class="node multiSocket function" id="func_01">Function 1 <div class="node-tools"><div class="node-tool-options"><i class="icon-cog"></i></div><div class="node-tool-delete"><i class="icon-trash"></i></div></div></div>
+					<div class="node multiSocket function" id="func_02">Function 2 <div class="node-tools"><div class="node-tool-options"><i class="icon-cog"></i></div><div class="node-tool-delete"><i class="icon-trash"></i></div></div></div>
+				</div>        
+	        </div>
+	        <div class="drawers">
+	        	<div class="data-drawer">
+	        		<div class="tabbable tabs-left">
+		        		<ul class="nav nav-list">
+		        			<li class="nav-header">Data & Polygons</li>
+		        			<li class="active"><a href="#data" data-toggle="tab">Data</a></li>
+		        			<li class="divider"></li>
+		        			<li class="nav-header">Operations</li>
+  							<li><a href="#functions" data-toggle="tab">Functions</a></li>
+		        		</ul>
+		        		<div class="tab-content">
+		        			<div id="data" class="tab-pane active">
+		        				<ul>
+		        					<li data-node-class="singleSocket data">Data 1 <input type="button" value="Add" /></li>
+			        				<li data-node-class="singleSocket data">Data 2 <input type="button" value="Add" /></li>
+			        				<li data-node-class="multiSocket data">Data 3 <input type="button" value="Add" /></li>
+			        				<li data-node-class="multiSocket data">Data 4 <input type="button" value="Add" /></li>
+			        			</ul>
+		        			</div>
+		        			<div id="functions" class="tab-pane">
+		        				<ul>
+			        				<li data-node-class="singleSocket function">Function 1 <input type="button" value="Add" /></li>
+				        			<li data-node-class="singleSocket function">Function 2 <input type="button" value="Add" /></li>
+				        			<li data-node-class="multiSocket function">Function 3 <input type="button" value="Add" /></li>
+				        			<li data-node-class="multiSocket function">Function 4 <input type="button" value="Add" /></li>
+				        		</ul>
+		        			</div>
+		        		</div>
+		        	</div>
+	        	</div>
+	        	<div class="preview-drawer"></div>
+	        </div>
+	    </div>
+		
+        <!-- DEPENDENCIES -->
+	    <script src="js/vendor/jquery-1.9.0.js"></script>
+		<script src="js/vendor/jquery-ui-1.9.2-min.js"></script>
+        <script src="js/vendor/jquery.ui.touch-punch.min.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+				
+		<!-- JSPLUMB -->
+		<script src="js/vendor/jsBezier-0.6.js"></script>        
+		<script src="js/src/jsPlumb-util.js"></script>
+		<script src="js/src/jsPlumb-dom-adapter.js"></script>
+		<script src="js/src/jsPlumb-drag.js"></script>
+		<script src="js/src/jsPlumb.js"></script>
+		<script src="js/src/jsPlumb-endpoint.js"></script>                
+		<script src="js/src/jsPlumb-connection.js"></script>
+		<script src="js/src/jsPlumb-anchors.js"></script>        
+		<script src="js/src/jsPlumb-defaults.js"></script>
+		<script src="js/src/jsPlumb-connectors-statemachine.js"></script>
+		<script src="js/src/jsPlumb-connectors-flowchart.js"></script>
+		<script src="js/src/jsPlumb-renderers-svg.js"></script>
+		<script src="js/src/jsPlumb-renderers-canvas.js"></script>
+		<script src="js/src/jsPlumb-renderers-vml.js"></script>
+		<script src="js/src/jquery.jsPlumb.js"></script>
+
+		<!-- SCRIPTS -->
+		<script src="js/app.js"></script>
+        
+    </body>
+</html>
