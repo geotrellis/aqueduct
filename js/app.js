@@ -3,8 +3,6 @@ jsPlumb.bind("ready", function() {
 	var Aqueduct = {
 	
 		init: function() {
-			$('.workspace-container').draggable();
-
 			// setup some defaults for jsPlumb.	
 			jsPlumb.importDefaults({
 				DragOptions : { cursor: 'pointer', zIndex:2000 },
@@ -90,7 +88,13 @@ jsPlumb.bind("ready", function() {
 			jsPlumb.draggable($(".node"), { containment: '.workspace-container' });
 			jsPlumb.bind("click", jsPlumb.detach);
 
-			$('.data-drawer li > input[type="button"]').on('click', this.addNode);
+			$('.data-drawer li').draggable({
+				containment: '#content',
+				appendTo: '#content',
+				helper: 'clone'
+			});
+			$('.data-drawer li').on('drop', this.addNode);
+
 			$('.node-tool-delete').bind('click', this.deleteNode);
 			$('.node-tool-options').popover({
 				content: "Sample options popover",

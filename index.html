@@ -30,8 +30,11 @@
 					<div class="node multiSocket function" id="func_02">Function 2 <div class="node-tools"><div class="node-tool-options"><i class="icon-cog"></i></div><div class="node-tool-delete"><i class="icon-trash"></i></div></div></div>
 				</div>
 				<div id="run-button-container">
-					<button id="run-button" class="btn btn-success">Run!</button>
-					<span class="badge badge-important">6</span>
+					<button id="run-button" class="btn btn-success btn-large disabled">Run!</button>
+					<span class="badge badge-important">4</span>
+				</div>
+				<div id="view-container">
+					<button id="toggle-view" class="btn btn-inverse">Code View</button>
 				</div>
 	        </div>
 	        <div class="drawers">
@@ -43,22 +46,29 @@
 		        			<li class="divider"></li>
 		        			<li class="nav-header">Operations</li>
   							<li><a href="#functions" data-toggle="tab">Functions</a></li>
+  							<li><a href="#recipes" data-toggle="tab">My Recipes</a></li>
 		        		</ul>
 		        		<div class="tab-content">
 		        			<div id="data" class="tab-pane active">
 		        				<ul>
-		        					<li data-node-class="singleSocket data">Data 1 <input type="button" value="Add" /></li>
-			        				<li data-node-class="singleSocket data">Data 2 <input type="button" value="Add" /></li>
-			        				<li data-node-class="multiSocket data">Data 3 <input type="button" value="Add" /></li>
-			        				<li data-node-class="multiSocket data">Data 4 <input type="button" value="Add" /></li>
+		        					<li data-node-class="singleSocket data">Data 1</li>
+			        				<li data-node-class="singleSocket data">Data 2</li>
+			        				<li data-node-class="multiSocket data">Data 3</li>
+			        				<li data-node-class="multiSocket data">Data 4</li>
 			        			</ul>
 		        			</div>
 		        			<div id="functions" class="tab-pane">
 		        				<ul>
-			        				<li data-node-class="singleSocket function">Function 1 <input type="button" value="Add" /></li>
-				        			<li data-node-class="singleSocket function">Function 2 <input type="button" value="Add" /></li>
-				        			<li data-node-class="multiSocket function">Function 3 <input type="button" value="Add" /></li>
-				        			<li data-node-class="multiSocket function">Function 4 <input type="button" value="Add" /></li>
+			        				<li data-node-class="singleSocket function">Function 1</li>
+				        			<li data-node-class="singleSocket function">Function 2 </li>
+				        			<li data-node-class="multiSocket function">Function 3</li>
+				        			<li data-node-class="multiSocket function">Function 4</li>
+				        		</ul>
+		        			</div>
+		        			<div id="recipes" class="tab-pane">
+		        				<ul>
+			        				<li data-node-class="singleSocket function">My Recipe #1</li>
+				        			<li data-node-class="singleSocket function">My Recipe #2</li>
 				        		</ul>
 		        			</div>
 		        		</div>
