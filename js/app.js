@@ -95,11 +95,9 @@ jsPlumb.bind("ready", function() {
 			});
 			$('.data-drawer li').on('drop', this.addNode);
 
+			$('.node').bind('click', this.selectNode);
 			$('.node-tool-delete').bind('click', this.deleteNode);
-			$('.node-tool-options').popover({
-				content: "Sample options popover",
-				placement: "bottom"
-			});
+			$('.node-tool-options').bind('click', this.showPopover);
 		},
 
 		addNode: function() {
@@ -127,10 +125,8 @@ jsPlumb.bind("ready", function() {
 
 			workspace.append(node);
 			$('#' + rand + ' .node-tool-delete').bind('click', Aqueduct.deleteNode);
-			$('#' + rand + ' .node-tool-options').popover({
-				content: "Sample options popover",
-				placement: "bottom"
-			});
+			$('#' + rand + ' .node-tool-options').bind('click', this.showPopover);
+
 			jsPlumb.draggable($('#' + rand), { containment: '.workspace-container' });
 			jsPlumb.addEndpoint($('#' + rand), { anchor: [1, 0.5, 0, -1] }, Aqueduct.plugEndpoint);
 			jsPlumb.addEndpoint($('#' + rand), { anchor: [0, 0.5, 0, 0] }, Aqueduct.singleSocketEndpoint);
@@ -139,6 +135,15 @@ jsPlumb.bind("ready", function() {
 		deleteNode: function() {
 			var nodeId = $(this).parent().parent().attr('id');
    				jsPlumb.remove(nodeId);
+		},
+
+		selectNode: function() {
+			$('.node').not(this).removeClass('activeNode');
+			$(this).toggleClass('activeNode');
+		},
+
+		showPopover: function() {
+			console.log('Show popover');
 		}
 	};
 

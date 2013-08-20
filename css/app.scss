@@ -143,7 +143,6 @@ header {
 	}
 }
 
-
 .node { 
 	width: 5em;
 	padding: 1em;
@@ -171,32 +170,42 @@ header {
 		right: -3px;
 		z-index: 9999;
 		font-size: 10px;
-		}
-		&:hover .node-tools {
-			display: block;
-			cursor: default;
+	}
+	&:hover .node-tools {
+		display: block;
+		cursor: default;
+	}
+
+	.node-tools > div:not(.popover) {
+		float: left;
+		padding: 5px 5px 5px 2px;
+		line-height: 10px;
+		opacity: .75;
 		
-			div:not(.popover) {
-				float: left;
-				padding: 5px 5px 5px 2px;
-				line-height: 10px;
-				opacity: .75;
-				
-				&:first-child {
-					margin: 0;
-					padding: 5px 2px 5px 5px;
-				}
-				&:hover {
-					cursor: pointer;
-					opacity: 1;
-				}
-			}
+		&:first-child {
+			margin: 0;
+			padding: 5px 2px 5px 5px;
 		}
+		&:hover {
+			cursor: pointer;
+			opacity: 1;
+		}
+	}
 
 	.popover {
 		min-width: 200px;
 	}
 }
+
+.node.activeNode {
+	box-shadow: 3px 3px 0px rgba(0,0,0,.25), 0 0 10px rgba(0,0,255,.5);
+
+	.node-tools {
+		display: block;
+		cursor: default;
+	}
+}
+
 .node.#{$data} {
 	width: 8em;
 	padding: 2em;

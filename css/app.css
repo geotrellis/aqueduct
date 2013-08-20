@@ -130,19 +130,25 @@ header {
   .node:hover .node-tools {
     display: block;
     cursor: default; }
-    .node:hover .node-tools div:not(.popover) {
-      float: left;
-      padding: 5px 5px 5px 2px;
-      line-height: 10px;
-      opacity: .75; }
-      .node:hover .node-tools div:not(.popover):first-child {
-        margin: 0;
-        padding: 5px 2px 5px 5px; }
-      .node:hover .node-tools div:not(.popover):hover {
-        cursor: pointer;
-        opacity: 1; }
+  .node .node-tools > div:not(.popover) {
+    float: left;
+    padding: 5px 5px 5px 2px;
+    line-height: 10px;
+    opacity: .75; }
+    .node .node-tools > div:not(.popover):first-child {
+      margin: 0;
+      padding: 5px 2px 5px 5px; }
+    .node .node-tools > div:not(.popover):hover {
+      cursor: pointer;
+      opacity: 1; }
   .node .popover {
     min-width: 200px; }
+
+.node.activeNode {
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.25), 0 0 10px rgba(0, 0, 255, 0.5); }
+  .node.activeNode .node-tools {
+    display: block;
+    cursor: default; }
 
 .node.data {
   width: 8em;
