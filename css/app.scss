@@ -1,3 +1,15 @@
+$data: data;
+$func: func;
+
+@mixin not-selectable {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: moz-none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
 html,
 body {
 	height: 100%;
@@ -17,7 +29,7 @@ header {
 		box-shadow: 0 5px 0px rgba(0,0,0,.15);
 		background: white;
 		
-		.brand {
+		.brand {  
 			font-family: 'Roboto', Arial, sans-serif;
 			font-size: 18px;
 			padding: 10px 14px;
@@ -30,12 +42,7 @@ header {
 	top: 42px;
 	bottom: 0;
 	width: 100%;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: moz-none;
-	-ms-user-select: none;
-	user-select: none;
+	@include not-selectable;
 	
 	.workspace {
 		position: absolute;
@@ -61,6 +68,13 @@ header {
 			z-index: 99;
 			bottom: 20px;
 			right: 20px;
+
+			#run-button {
+
+			}
+			.badge {
+
+			}
 		}
 	}
 
@@ -174,21 +188,21 @@ header {
 		min-width: 200px;
 	}
 }
-.node.data {
+.node.#{$data} {
 	width: 8em;
 	padding: 2em;
 }
-#data_01 {
+##{$data}_01 {
 	left: 10em;
 }
-#data_02 {
+##{$data}_02 {
 	left: 10em;
 	top: 25em;
 }
-#func_01 {
+##{$func}_01 {
 	left: 35em;
 }
-#func_02 {
+##{$func}_02 {
 	left: 35em;
 	top: 20em;
 }
