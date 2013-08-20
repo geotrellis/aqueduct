@@ -1,207 +1,167 @@
 html,
 body {
-	height: 100%;
-	position: relative;
-	}
+  height: 100%;
+  position: relative; }
 
 header {
-	position: relative;
-	z-index: 10;
-	}
-	header .navbar {
-		margin: 0;
-	}
-	header .navbar-inner {
-		border-radius: 0;
-		border: none;
-		box-shadow: 0 5px 0px rgba(0,0,0,.15);
-		background: white;
-		}
-		header .navbar-inner .brand {
-			font-family: 'Roboto', Arial, sans-serif;
-			font-size: 18px;
-			padding: 10px 14px;
-		}
+  position: relative;
+  z-index: 10; }
+  header .navbar {
+    margin: 0; }
+  header .navbar-inner {
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 5px 0px rgba(0, 0, 0, 0.15);
+    background: white; }
+    header .navbar-inner .brand {
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 18px;
+      padding: 10px 14px; }
 
 #content {
-	position: absolute;
-	top: 42px;
-	bottom: 0;
-	width: 100%;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: moz-none;
-	-ms-user-select: none;
-	user-select: none;
-	}
-	#content .workspace {
-		position: absolute;
-		width: 100%;
-		top: 0;
-		bottom: 250px;
-		overflow: auto;
-		background: url(../img/graphy.png) repeat;
-		}
-		#content .workspace .workspace-container {
-			padding: 20px;
-			position: absolute;
-			top: -1px;
-			bottom: 0;
-			left: -1px;
-			right: 0;
-			background: rgba(255,255,255,.5);
-			border-top: 1px dashed #AAA;
-			border-left: 1px dashed #AAA;
-		}
+  position: absolute;
+  top: 42px;
+  bottom: 0;
+  width: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: moz-none;
+  -ms-user-select: none;
+  user-select: none; }
+  #content .workspace {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 250px;
+    overflow: auto;
+    background: url(../img/graphy.png) repeat; }
+    #content .workspace .workspace-container {
+      padding: 20px;
+      position: absolute;
+      top: -1px;
+      bottom: 0;
+      left: -1px;
+      right: 0;
+      background: rgba(255, 255, 255, 0.5);
+      border-top: 1px dashed #AAA;
+      border-left: 1px dashed #AAA; }
+    #content .workspace #run-button-container {
+      position: absolute;
+      z-index: 99;
+      bottom: 20px;
+      right: 20px; }
+  #content .drawers {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 250px;
+    background: #DDD; }
+    #content .drawers .data-drawer {
+      position: absolute;
+      background: #AAA;
+      height: 100%;
+      width: 550px;
+      left: 0; }
+      #content .drawers .data-drawer .tabbable {
+        height: 100%; }
+      #content .drawers .data-drawer .nav {
+        float: left;
+        width: 125px;
+        background: #f1f1f2;
+        overflow: auto;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        position: absolute;
+        top: 0;
+        bottom: 0; }
+        #content .drawers .data-drawer .nav .divider {
+          background-color: #CCC; }
+      #content .drawers .data-drawer .tab-content {
+        height: 100%;
+        overflow: auto;
+        background: #DDD;
+        margin-left: 155px; }
+        #content .drawers .data-drawer .tab-content .tab-pane ul {
+          list-style: none;
+          margin: 0;
+          padding: 10px 12px; }
+    #content .drawers .preview-drawer {
+      position: absolute;
+      background: #333;
+      height: 100%;
+      right: 0;
+      left: 550px; }
 
-	#content .drawers {
-		position: absolute;
-		width: 100%;
-		bottom: 0;
-		height: 250px;
-		background: #DDD;
-		}
-		#content .drawers .data-drawer {
-			position: absolute;
-			background: #AAA;
-			height: 100%;
-			width: 550px;
-			left: 0;
-			}
-			#content .drawers .data-drawer .tabbable {
-				height: 100%;
-				}
-				#content .drawers .data-drawer .nav {
-					float: left;
-					width: 125px;
-					background: #f1f1f2;
-					overflow: auto;
-					padding-top: 5px;
-					padding-bottom: 5px;
-					position: absolute;
-					top: 0;
-					bottom: 0;
-					}
-					#content .drawers .data-drawer .nav .nav-header {
+.node {
+  width: 5em;
+  padding: 1em;
+  top: 12em;
+  position: absolute;
+  background: #AAA;
+  z-index: 4;
+  border: 3px solid #FFF;
+  opacity: 1.0;
+  filter: alpha(opacity=80);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
+  cursor: move; }
+  .node:hover {
+    z-index: 9999;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.25);
+    filter: alpha(opacity=100); }
+  .node .node-tools {
+    display: none;
+    position: absolute;
+    bottom: -26px;
+    background: white;
+    right: -3px;
+    z-index: 9999;
+    font-size: 10px; }
+  .node:hover .node-tools {
+    display: block;
+    cursor: default; }
+    .node:hover .node-tools div:not(.popover) {
+      float: left;
+      padding: 5px 5px 5px 2px;
+      line-height: 10px;
+      opacity: .75; }
+      .node:hover .node-tools div:not(.popover):first-child {
+        margin: 0;
+        padding: 5px 2px 5px 5px; }
+      .node:hover .node-tools div:not(.popover):hover {
+        cursor: pointer;
+        opacity: 1; }
+  .node .popover {
+    min-width: 200px; }
 
-					}
-					#content .drawers .data-drawer .nav .divider {
-						background-color: #CCC;
-					}
-					#content .drawers .data-drawer .nav li a {
+.node.data {
+  width: 8em;
+  padding: 2em; }
 
-						}
-						#content .drawers .data-drawer .nav li.active a {
+#data_01 {
+  left: 10em; }
 
-						}
-						#content .drawers .data-drawer .nav li:hover a {
+#data_02 {
+  left: 10em;
+  top: 25em; }
 
-						}
+#func_01 {
+  left: 35em; }
 
-				#content .drawers .data-drawer .tab-content {
-					height: 100%;
-					overflow: auto;
-					background: #DDD;
-					margin-left: 155px;
-					}
-					#content .drawers .data-drawer .tab-content .tab-pane ul {
-						list-style: none;
-						margin: 0;
-						padding: 10px 12px;
-					}
-
-		#content .drawers .preview-drawer {
-			position: absolute;
-			background: #333;
-			height: 100%;
-			right: 0;
-			left: 550px;
-		}
-
-
-.node { 
-	width: 5em;
-	padding: 1em;
-	top: 12em;
-	position: absolute;
-	background: #AAA;
-	z-index: 4;
-	border: 3px solid #FFF;
-	opacity: 1.0
-	filter: alpha(opacity=80);
-	box-shadow: 2px 2px 0px rgba(0,0,0,.15);
-	cursor: move;
-	}
-	.node:hover {
-		z-index: 9999;
-		box-shadow: 3px 3px 0px rgba(0,0,0,.25);
-		filter: alpha(opacity=100);
-	}
-	.node.data {
-		width: 8em;
-		padding: 2em;
-	}
-
-	.node .node-tools {
-		display: none;
-		position: absolute;
-		bottom: -26px;
-		background: white;
-		right: -3px;
-		z-index: 9999;
-		font-size: 10px;
-		}
-		.node:hover .node-tools {
-			display: block;
-			cursor: default;
-		}
-		.node .node-tools > div:not(.popover) {
-			float: left;
-			padding: 5px 5px 5px 2px;
-			line-height: 10px;
-			opacity: .75;
-			}
-			.node .node-tools > div:not(.popover):first-child {
-				margin: 0;
-				padding: 5px 2px 5px 5px;
-			}
-			.node .node-tools > div:not(.popover):hover {
-				cursor: pointer;
-				opacity: 1;
-			}
-
-		.node .popover {
-			min-width: 200px;
-		}
-
-	#data_01 {
-		left: 10em;
-	}
-	#data_02 {
-		left: 10em;
-		top: 25em;
-	}
-	#func_01 {
-		left: 35em;
-	}
-	#func_02 {
-		left: 35em;
-		top: 20em;
-	}
+#func_02 {
+  left: 35em;
+  top: 20em; }
 
 .aLabel {
-	background-color: white;
-	opacity: 0.8;
-	padding: 0.3em;				
-}
+  background-color: white;
+  opacity: 0.8;
+  padding: 0.3em; }
 
 ._jsPlumb_endpoint {
-	z-index: 3;
-}
+  z-index: 3; }
 
-.dragHover { 
-	border: 1px dotted red; 
-}
+.dragHover {
+  border: 1px dotted red; }
 
-path { cursor: pointer; }
+path {
+  cursor: pointer; }

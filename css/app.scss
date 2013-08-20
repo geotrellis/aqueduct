@@ -1,0 +1,210 @@
+html,
+body {
+	height: 100%;
+	position: relative;
+	}
+
+header {
+	position: relative;
+	z-index: 10;
+
+	.navbar {
+		margin: 0;
+	}
+	.navbar-inner {
+		border-radius: 0;
+		border: none;
+		box-shadow: 0 5px 0px rgba(0,0,0,.15);
+		background: white;
+		
+		.brand {
+			font-family: 'Roboto', Arial, sans-serif;
+			font-size: 18px;
+			padding: 10px 14px;
+		}
+	}
+}
+
+#content {
+	position: absolute;
+	top: 42px;
+	bottom: 0;
+	width: 100%;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: moz-none;
+	-ms-user-select: none;
+	user-select: none;
+	
+	.workspace {
+		position: absolute;
+		width: 100%;
+		top: 0;
+		bottom: 250px;
+		overflow: auto;
+		background: url(../img/graphy.png) repeat;
+		
+		.workspace-container {
+			padding: 20px;
+			position: absolute;
+			top: -1px;
+			bottom: 0;
+			left: -1px;
+			right: 0;
+			background: rgba(255,255,255,.5);
+			border-top: 1px dashed #AAA;
+			border-left: 1px dashed #AAA;
+		}
+		#run-button-container {
+			position: absolute;
+			z-index: 99;
+			bottom: 20px;
+			right: 20px;
+		}
+	}
+
+	.drawers {
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		height: 250px;
+		background: #DDD;
+		
+		.data-drawer {
+			position: absolute;
+			background: #AAA;
+			height: 100%;
+			width: 550px;
+			left: 0;
+
+			.tabbable {
+				height: 100%;
+			}
+			.nav {
+				float: left;
+				width: 125px;
+				background: #f1f1f2;
+				overflow: auto;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+
+				.divider {
+					background-color: #CCC;
+				}
+			}
+			.tab-content {
+				height: 100%;
+				overflow: auto;
+				background: #DDD;
+				margin-left: 155px;
+
+				.tab-pane ul {
+					list-style: none;
+					margin: 0;
+					padding: 10px 12px;
+				}
+			}
+		}
+
+		.preview-drawer {
+			position: absolute;
+			background: #333;
+			height: 100%;
+			right: 0;
+			left: 550px;
+		}
+	}
+}
+
+
+.node { 
+	width: 5em;
+	padding: 1em;
+	top: 12em;
+	position: absolute;
+	background: #AAA;
+	z-index: 4;
+	border: 3px solid #FFF;
+	opacity: 1.0;
+	filter: alpha(opacity=80);
+	box-shadow: 2px 2px 0px rgba(0,0,0,.15);
+	cursor: move;
+
+	&:hover {
+		z-index: 9999;
+		box-shadow: 3px 3px 0px rgba(0,0,0,.25);
+		filter: alpha(opacity=100);
+	}
+	
+	.node-tools {
+		display: none;
+		position: absolute;
+		bottom: -26px;
+		background: white;
+		right: -3px;
+		z-index: 9999;
+		font-size: 10px;
+		}
+		&:hover .node-tools {
+			display: block;
+			cursor: default;
+		
+			div:not(.popover) {
+				float: left;
+				padding: 5px 5px 5px 2px;
+				line-height: 10px;
+				opacity: .75;
+				
+				&:first-child {
+					margin: 0;
+					padding: 5px 2px 5px 5px;
+				}
+				&:hover {
+					cursor: pointer;
+					opacity: 1;
+				}
+			}
+		}
+
+	.popover {
+		min-width: 200px;
+	}
+}
+.node.data {
+	width: 8em;
+	padding: 2em;
+}
+#data_01 {
+	left: 10em;
+}
+#data_02 {
+	left: 10em;
+	top: 25em;
+}
+#func_01 {
+	left: 35em;
+}
+#func_02 {
+	left: 35em;
+	top: 20em;
+}
+
+.aLabel {
+	background-color: white;
+	opacity: 0.8;
+	padding: 0.3em;				
+}
+
+._jsPlumb_endpoint {
+	z-index: 3;
+}
+
+.dragHover { 
+	border: 1px dotted red; 
+}
+
+path { cursor: pointer; }
