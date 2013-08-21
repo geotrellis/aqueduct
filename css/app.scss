@@ -62,12 +62,12 @@ header {
 		}
 		#run-button-container {
 			position: absolute;
-			z-index: 99;
+			z-index: 999;
 			bottom: 22px;
 			right: 20px;
 
 			#run-button {
-
+				
 			}
 			.badge {
 				position: absolute;
@@ -81,7 +81,7 @@ header {
 		}
 		#view-container {
 			position: absolute;
-			z-index: 99;
+			z-index: 999;
 			top: 20px;
 			right: 20px;
 		}
@@ -157,7 +157,7 @@ header {
 	cursor: move;
 
 	&:hover {
-		z-index: 9999;
+		z-index: 99;
 		box-shadow: 3px 3px 0px rgba(0,0,0,.25);
 		filter: alpha(opacity=100);
 	}

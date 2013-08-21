@@ -126,6 +126,7 @@ jsPlumb.bind("ready", function() {
 			workspace.append(node);
 			$('#' + rand + ' .node-tool-delete').bind('click', Aqueduct.deleteNode);
 			$('#' + rand + ' .node-tool-options').bind('click', this.showPopover);
+			$('#' + rand).bind('click', this.selectNode);
 
 			jsPlumb.draggable($('#' + rand), { containment: '.workspace-container' });
 			jsPlumb.addEndpoint($('#' + rand), { anchor: [1, 0.5, 0, -1] }, Aqueduct.plugEndpoint);
