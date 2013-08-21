@@ -93,30 +93,30 @@ jsPlumb.bind("ready", function() {
 				appendTo: '#content',
 				helper: 'clone'
 			});
-			$('.data-drawer li').on('drop', this.addNode);
+			$('.workspace-container').droppable({
+				accept: '.data-drawer li',
+				drop: function(event, ui) {
+					Aqueduct.addNode(ui.draggable);
+				}
+			});
 
 			$('.node').bind('click', this.selectNode);
 			$('.node-tool-delete').bind('click', this.deleteNode);
 			$('.node-tool-options').bind('click', this.showPopover);
 		},
 
-		addNode: function() {
-			var nodeClass = $(this).parent().attr('data-node-class'),
-				nodeText  = $(this).parent().text(),
+		addNode: function(ui) {
+			var nodeClass = $(ui).attr('data-node-class'),
+				nodeText  = $(ui).text(),
 				workspace = $('.workspace-container'),
 				// For now, just assign a random number for a unique ID for new nodes
 				rand	  = Math.floor(Math.random()*1001),
-				// We want new items in the center, always (instead of 0,0)
-				// So, subtract the width/height of the document from document to get 
-				// the difference and then use half that value to get the offsets
-				dWidth	  = $(document).width(),
-				dHeight	  = $(document).height(),
-				wWidth 	  = workspace.width(),
-				wHeight   = workspace.height(),
-				xOff	  =	((wWidth - dWidth)/2) + (wWidth/2),
-				yOff	  =	((wHeight - dHeight)/2) + (wHeight/2) + 150,
+				// Since we're dragging the item to the workspace, we want to position
+				// the node at the mouse pointer's drop location
+				xPos	  =	event.pageX,
+				yPos	  =	event.pageY - 40,
 				// HTML template for a default node, with classes and text from the button
-				node 	  = '<div class="node ' + nodeClass + '" id="' + rand + '" style="left: ' + xOff + 'px; top: ' + yOff + 'px;">' + nodeText + 
+				node 	  = '<div class="node ' + nodeClass + '" id="' + rand + '" style="left: ' + xPos + 'px; top: ' + yPos + 'px;">' + nodeText + 
 							'    <div class="node-tools">' + 
 							'        <div class="node-tool-options"><i class="icon-cog"></i></div>' +
 							'        <div class="node-tool-delete"><i class="icon-trash"></i></div>' + 
